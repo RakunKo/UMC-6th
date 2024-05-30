@@ -1,7 +1,7 @@
 package umc.mission.week7.apiPayLoad.exception;
 
 import umc.mission.week7.apiPayLoad.code.BaseErrorCode;
-import umc.mission.week7.apiPayLoad.code.ErrorReasonDTO;
+import umc.mission.week7.apiPayLoad.code.DTO.reasonDTO.ErrorReasonDTO;
 
 public class GeneralException extends RuntimeException {
     private BaseErrorCode code;

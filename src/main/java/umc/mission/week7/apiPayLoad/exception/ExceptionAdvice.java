@@ -14,7 +14,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import umc.mission.week7.apiPayLoad.ApiResponse;
-import umc.mission.week7.apiPayLoad.code.ErrorReasonDTO;
+import umc.mission.week7.apiPayLoad.code.DTO.reasonDTO.ErrorReasonDTO;
 import umc.mission.week7.apiPayLoad.code.status.ErrorStatus;
 
 import java.util.LinkedHashMap;

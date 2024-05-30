@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import umc.mission.week7.apiPayLoad.code.BaseCode;
-import umc.mission.week7.apiPayLoad.code.ErrorReasonDTO;
-import umc.mission.week7.apiPayLoad.code.ReasonDTO;
+import umc.mission.week7.apiPayLoad.code.DTO.reasonDTO.ReasonDTO;
 
 @Getter
 @AllArgsConstructor
