@@ -5,7 +5,7 @@ import umc.mission.week7.domain.entity.Member;
 
 public interface MemberCommandService {
 
-    public Member joinMember(MemberRequestDTO.JoinDto request);
+    Member joinMember(MemberRequestDTO.JoinDto request);
 
     Member findMemberById(Long memberId);
 }

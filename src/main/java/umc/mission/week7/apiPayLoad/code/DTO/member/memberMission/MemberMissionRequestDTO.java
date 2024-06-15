@@ -9,8 +9,6 @@ import java.util.List;
 public class MemberMissionRequestDTO {
     @Getter
     public static class CreateMemberMissionRequestDTO{
-        Long memberId;
-        Long missionId;
         MissionStatus status;
     }
 }

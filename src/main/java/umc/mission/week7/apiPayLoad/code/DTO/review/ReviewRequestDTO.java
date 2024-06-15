@@ -5,9 +5,8 @@ import lombok.Getter;
 public class ReviewRequestDTO {
     @Getter
     public static class CreateReview {
-        Long memberId;
-        Long storeId;
         String title;
         Float score;
+        String body;
     }
 }

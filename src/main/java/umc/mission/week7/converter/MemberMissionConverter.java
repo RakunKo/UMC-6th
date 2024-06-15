@@ -1,5 +1,6 @@
 package umc.mission.week7.converter;
 
+import org.springframework.data.domain.Page;
 import umc.mission.week7.apiPayLoad.code.DTO.member.memberMission.MemberMissionRequestDTO;
 import umc.mission.week7.apiPayLoad.code.DTO.member.memberMission.MemberMissionResponseDTO;
 import umc.mission.week7.apiPayLoad.code.DTO.mission.MissionRequestDTO;
@@ -11,6 +12,9 @@ import umc.mission.week7.domain.mapping.MemberMission;
 import umc.mission.week7.service.MemberService.MemberCommand.MemberCommandService;
 import umc.mission.week7.service.MissionService.MissionCommandService;
 import umc.mission.week7.service.StoreService.StoreCommandService;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MemberMissionConverter {
 
@@ -25,13 +29,38 @@ public class MemberMissionConverter {
                 .build();
     }
 
-    public static MemberMission toMemberMission(MemberMissionRequestDTO.CreateMemberMissionRequestDTO request, MemberCommandService memberCommandService, MissionCommandService missionCommandService){
-        Member member = memberCommandService.findMemberById(request.getMemberId());
-        Mission mission = missionCommandService.findMemberById(request.getMissionId());
+    public static MemberMission toMemberMission(MemberMissionRequestDTO.CreateMemberMissionRequestDTO request,
+                                                Member member,
+                                                Mission mission){
         return MemberMission.builder()
                 .member(member)
                 .mission(mission)
                 .status(request.getStatus())
+                .build();
+    }
+
+    public static MemberMissionResponseDTO.MissionActiveDTO toProcessMission(MemberMission mission){
+        return MemberMissionResponseDTO.MissionActiveDTO.builder()
+                .missionSpec(mission.getMission().getMissionSpec())
+                .createdAt(mission.getCreatedAt())
+                .deadline(mission.getMission().getDeadline())
+                .reward(mission.getMission().getReward())
+                .status(mission.getStatus().toString())
+                .build();
+    }
+
+    public static MemberMissionResponseDTO.MemberMissionActiveListDTO toProcessMissionList(Page<MemberMission> missionList){
+
+        List<MemberMissionResponseDTO.MissionActiveDTO> processMissionList = missionList.stream()
+                .map(MemberMissionConverter::toProcessMission).collect(Collectors.toList());
+
+        return MemberMissionResponseDTO.MemberMissionActiveListDTO.builder()
+                .isLast(missionList.isLast())
+                .isFirst(missionList.isFirst())
+                .totalPage(missionList.getTotalPages())
+                .totalElements(missionList.getTotalElements())
+                .listSize(processMissionList.size())
+                .missionList(processMissionList)
                 .build();
     }
 }

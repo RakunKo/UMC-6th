@@ -28,17 +28,21 @@ public enum ErrorStatus implements BaseErrorCode {
 
     STORE_NAME_EMPTY(HttpStatus.NOT_FOUND, "STORE4001", "음식점 이름은 필수입니다."),
     STORE_ADDRESS_EMPTY(HttpStatus.NOT_FOUND, "STORE4002", "음식점 주소은 필수입니다."),
+    STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE4003", "음식점이 없습니다"),
 
     REVIEW_TITLE_EMPTY(HttpStatus.NOT_FOUND, "REVIEW4001", "리뷰 본문은 필수입니다."),
     REVIEW_MEMBER_ID_EMPTY(HttpStatus.NOT_FOUND, "REVIEW4002", "사용자 ID는 필수입니다."),
     REVIEW_STORE_ID_EMPTY(HttpStatus.NOT_FOUND, "REVIEW4003", "상점 ID는 필수입니다."),
     REVIEW_SCORE_EMPTY(HttpStatus.NOT_FOUND, "REVIEW4004", "평점은 필수입니다."),
 
+    MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MISSION4000", "미션이 없습니다"),
     MISSION_SPEC_EMPTY(HttpStatus.NOT_FOUND, "MISSION4001", "미션 설명은 필수입니다."),
     MISSION_DEADLINE_EMPTY(HttpStatus.NOT_FOUND, "MISSION4002", "미션 기한은 필수입니다."),
     MISSION_REWARD_EMPTY(HttpStatus.NOT_FOUND, "MISSION4003", "미션 보상은 필수입니다."),
 
-    MEMBER_MISSION_STATUS_ERROR(HttpStatus.NOT_FOUND, "MEMBERMISSION4001", "FAIL, COMPLETE, READY, DAFALUT, PROCESS 중 하나만 선택하세요")
+    MEMBER_MISSION_STATUS_ERROR(HttpStatus.NOT_FOUND, "MEMBERMISSION4001", "FAIL, COMPLETE, READY, DAFALUT, PROCESS 중 하나만 선택하세요"),
+
+    CHECK_PAGE_ERROR(HttpStatus.BAD_REQUEST, "PAGING4001", "잘못된 페이징입니다.")
     ;
 
     private final HttpStatus httpStatus;

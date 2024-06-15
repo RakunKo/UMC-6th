@@ -6,5 +6,7 @@ import umc.mission.week7.domain.entity.Review;
 import umc.mission.week7.domain.entity.Store;
 
 public interface ReviewCommandService {
-    public Review createReview(ReviewRequestDTO.CreateReview request);
+    public Review createReview(ReviewRequestDTO.CreateReview request,
+                               Long memberId,
+                               Long storeId);
 }
