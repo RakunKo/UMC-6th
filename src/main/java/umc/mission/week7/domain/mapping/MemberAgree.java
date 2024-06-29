@@ -6,7 +6,7 @@ import umc.mission.week7.domain.common.DateBaseEntity;
 import umc.mission.week7.domain.entity.FoodCategory;
 import umc.mission.week7.domain.entity.Member;
 import umc.mission.week7.domain.entity.Terms;
-
+//commit
 @Entity
 @Getter
 @Builder
