@@ -1,4 +1,4 @@
-package umc.mission.week7.apiPayLoad.code;
+package umc.mission.week7.apiPayLoad.code.DTO.reasonDTO;
 
 import lombok.Builder;
 import lombok.Getter;
